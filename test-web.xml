@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SauceLab - Sort " parallel="false" thread-count="1">
+    <listeners>
+        <listener class-name="core.saucedemo.actions.reports.AllureTestListener"/>
+    </listeners>
+    <parameter name="appUrl" value="https://www.saucedemo.com/"/>
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="saucedemo.testcase.LoginTests"/>
+        </classes>
+    </test>
+</suite>
