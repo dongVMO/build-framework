@@ -16,9 +16,9 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public BasePage() {
+    public String getPageUrl() {
+        return driver.getCurrentUrl();
     }
-
     public void waitForElementVisible(By xpathLocator) {
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(xpathLocator));

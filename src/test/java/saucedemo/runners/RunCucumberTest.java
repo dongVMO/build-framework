@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/saucedemo/features",
         glue = "core.saucedemo.actions.stepdefinitions",
-        dryRun = false,
+        dryRun = true,
         monochrome = false,
         tags = "@login"
 )

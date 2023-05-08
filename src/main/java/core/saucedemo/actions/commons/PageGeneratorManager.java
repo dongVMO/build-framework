@@ -1,5 +1,6 @@
 package core.saucedemo.actions.commons;
 
+import core.saucedemo.actions.stepdefinitions.LoginPageSteps;
 import core.saucedemo.actions.steps.Homepage;
 import core.saucedemo.actions.steps.LoginPage;
 import core.saucedemo.actions.steps.YourCartPage;
