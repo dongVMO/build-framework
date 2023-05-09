@@ -10,7 +10,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import saucedemo.base.AbstractTest;
 
-@Listeners(AllureTestListener.class)
+//@Listeners(AllureTestListener.class)
 public class LoginTests extends AbstractTest {
     UserDataMapper userData;
     LoginPage loginPage;

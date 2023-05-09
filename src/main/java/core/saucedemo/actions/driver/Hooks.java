@@ -35,6 +35,10 @@ public class Hooks {
                 }
 
                 switch (browser) {
+                    case "chrome":
+                        WebDriverManager.chromedriver().setup();
+                        driver = new ChromeDriver();
+                        break;
                     case "hchrome":
                         WebDriverManager.chromedriver().setup();
                         ChromeOptions chromeOptions = new ChromeOptions();

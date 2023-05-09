@@ -13,7 +13,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium-java-sersion>4.8.3</selenium-java-sersion>
-        <testng-version>7.4.0</testng-version>
+        <testng-version>7.1.0</testng-version>
         <aspecjweaver-version>1.9.19</aspecjweaver-version>
         <allure-testng-version>2.21.0</allure-testng-version>
         <maven-surfire-version>3.0.0</maven-surfire-version>
@@ -24,7 +24,7 @@
         <google-guava-version>31.1-jre</google-guava-version>
         <xmlFileName>test-web.xml</xmlFileName>
         <webdrivermanager-version>5.3.2</webdrivermanager-version>
-        <cucumber-version>7.12.0</cucumber-version>
+        <cucumber-version>5.7.0</cucumber-version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -39,24 +39,11 @@
             <artifactId>testng</artifactId>
             <version>${testng-version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspecjweaver-version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+<!--         https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure-testng-version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>${maven-surfire-version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
@@ -126,6 +113,13 @@
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber-version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber5-jvm -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber5-jvm</artifactId>
+            <version>2.21.0</version>
+        </dependency>
+
     </dependencies>
     <!-- Compiler/ Run Test -->
     <build>
@@ -149,13 +143,30 @@
                 <configuration>
                     <!-- Run TestNG xml file -->
                     <suiteXmlFiles>
-                        <file>${xmlFileName}</file>
+                        <suiteXmlFile>src/test/resources/test-web-cucumber.xml</suiteXmlFile>
+<!--                        <file>${xmlFileName}</file>-->
                     </suiteXmlFiles>
                     <!-- Argument -->
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspecjweaver-version}/aspectjweaver-${aspecjweaver-version}.jar"
+                        -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
                     </argLine>
 <!--                    <groups>login</groups>-->
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspecjweaver-version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>2.21.0</reportVersion>
                 </configuration>
             </plugin>
         </plugins>

@@ -6,8 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/saucedemo/features",
         glue = "core.saucedemo.actions.stepdefinitions",
-        dryRun = true,
-        monochrome = false,
+//        dryRun = false,
+        monochrome = true,
         tags = "@login"
 )
 public class RunCucumberTest extends AbstractTestNGCucumberTests {

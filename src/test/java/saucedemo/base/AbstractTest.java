@@ -1,11 +1,7 @@
 package saucedemo.base;
-
 import com.google.common.collect.ImmutableMap;
 import core.saucedemo.actions.driver.DriverManager;
 import org.testng.annotations.*;
-
-import java.io.IOException;
-
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 import static core.saucedemo.actions.commons.GlobalConstants.USER_PAGE_URL;
 
@@ -30,24 +26,5 @@ public class AbstractTest extends DriverManager {
     public void afterClass() {
        closeBrowserDriver();
     }
-
-//    @AfterSuite(alwaysRun = true)
-//    public void allureReport() {
-//
-//        System.getProperty(PROJECT_PATH);
-//        System.out.println(PROJECT_PATH);
-//        System.out.println(PROJECT_PATH + "\\allure-results");
-////        String cmd = "allure serve " +( projectPath + "\\allure-results");
-//        String[] cmd = {"allure", "serve",PROJECT_PATH + "\\allure-results"};
-//        try {
-//
-//            Runtime.getRuntime().exec(cmd);
-//            Thread.sleep(90000);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 }
